@@ -174,6 +174,18 @@ files = [
 ]
 
 [[package]]
+name = "python-decouple"
+version = "3.7"
+description = "Strict separation of settings from code."
+category = "main"
+optional = false
+python-versions = "*"
+files = [
+    {file = "python-decouple-3.7.tar.gz", hash = "sha256:e88a8d6bdf3b07d471a854099e455e20a6fa7a4d6ecf8631b250e3db654336e6"},
+    {file = "python_decouple-3.7-py3-none-any.whl", hash = "sha256:1596dad2670cca5b1f87d087d9adb6a1958c590df346b85d4b19a9d6f0d52cef"},
+]
+
+[[package]]
 name = "sqlalchemy"
 version = "2.0.4"
 description = "Database Abstraction Library"
@@ -266,4 +278,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "da326b9e67c393914cc12dac994a4251938aa0860ab5491d8a745930172943aa"
+content-hash = "4f9d951c6f538463d7a82e8560aacc0101930de45b7e4251b3b4b46fd74d54a7"
