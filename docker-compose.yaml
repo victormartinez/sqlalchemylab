@@ -1,0 +1,32 @@
+version: "3.9"
+
+services:
+  sqlalchemylab_db:
+    image: postgres:14
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./volumes/postgresql:/var/lib/postgresql/data
+    networks:
+      - lab
+
+  sqlalchemylab_db_admin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "lab@gmail.com"
+      PGADMIN_DEFAULT_PASSWORD: "postgres"
+    ports:
+      - "8080:80"
+    depends_on:
+      - postgres_db
+    volumes:
+      - ./volumes/pgadmin:/var/lib/pgadmin
+    networks:
+      - lab
+
+networks:
+  lab:
+    driver: bridge
