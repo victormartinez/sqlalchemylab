@@ -9,6 +9,7 @@ help:
 	@echo "	Code Style:"
 	@echo "		format - Format code style."
 	@echo "	Env:"
+	@echo "		db_connect - Connect to database container."
 	@echo "		db_generate_revision - Creates a database migration based on models."
 	@echo "		db_upgrade - Apply the created database migration."
 	@echo "		db_downgrade - Downgrade the current applied migration."
@@ -38,6 +39,10 @@ clean:
 	- @find . -name "__pycache__" -delete
 	- @find . -name "*.pytest_cache" -exec rm -rf {} \;
 	- @find . -name "*.mypy_cache" -exec rm -rf {} \;
+
+.PHONY: db_connect
+db_connect:
+	PGPASSWORD=postgres psql -d postgres -h 127.0.0.1 -U postgres
 
 .PHONY: db_generate_revision
 db_generate_revision:
