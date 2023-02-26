@@ -2,7 +2,7 @@
 name = "sqlalchemylab"
 version = "0.1.0"
 description = ""
-authors = ["Victor Martinez <victor.martinez@lend.tech>"]
+authors = ["Victor Martinez <vcrmartinez@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
@@ -11,6 +11,13 @@ alembic = "^1.9.4"
 sqlalchemy = "^2.0.4"
 python-decouple = "^3.7"
 
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.1.0"
+flake8 = "^6.0.0"
+isort = "^5.12.0"
+unify = "^0.5"
+mypy = "^1.0.1"
 
 [build-system]
 requires = ["poetry-core"]
