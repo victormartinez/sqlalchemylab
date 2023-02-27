@@ -8,7 +8,6 @@ from sqlalchemy import (
     Integer,
     String,
     VARCHAR,
-    UniqueConstraint,
 )
 from sqlalchemy.dialects import postgresql
 
@@ -18,12 +17,6 @@ from sqlalchemylab.entities.enums import Status
 
 class Reservation(BaseModel):
     __tablename__ = "reservations"
-    __table_args__ = (
-        UniqueConstraint(
-            "contract_model_id", "token",
-            name="uix_contract_model_id_token"
-        ),
-    )
 
     id = Column(
         postgresql.UUID(as_uuid=True),
