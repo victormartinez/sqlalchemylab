@@ -6,6 +6,7 @@ from sqlalchemy import pool
 from alembic import context
 import settings
 from sqlalchemylab.db import BaseModel
+from sqlalchemylab.entities import models
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
@@ -46,12 +47,12 @@ def run_migrations_offline() -> None:
     script output.
 
     """
-    url = config.get_main_option("sqlalchemy.url")
     context.configure(
-        url=url,
+        url=settings.DB_URI,
         target_metadata=target_metadata,
         literal_binds=True,
         dialect_opts={"paramstyle": "named"},
+        compare_type=True,
     )
 
     with context.begin_transaction():
