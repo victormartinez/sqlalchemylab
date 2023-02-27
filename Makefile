@@ -58,6 +58,7 @@ db_downgrade:
 
 .PHONY: db_drop
 db_drop:
+	rm -rf volumes/
 	docker container ls -a | grep sqlalchemylab_db | awk '{print $1}' | xargs docker container stop | xargs docker container rm
 
 .PHONY: db_up
