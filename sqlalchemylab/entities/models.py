@@ -13,7 +13,7 @@ from sqlalchemy import (
 from sqlalchemy.dialects import postgresql
 
 from sqlalchemylab.db import BaseModel, functions
-from sqlalchemylab.enums import Status
+from sqlalchemylab.entities.enums import Status
 
 
 class Reservation(BaseModel):
