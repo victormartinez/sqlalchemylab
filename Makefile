@@ -9,6 +9,8 @@ help:
 	@echo "	Code Style:"
 	@echo "		format - Format code style."
 	@echo "	Env:"
+	@echo "		command - Execute command."
+	@echo "		query - Execute query."
 	@echo "		db_connect - Connect to database container."
 	@echo "		db_generate_revision - Creates a database migration based on models."
 	@echo "		db_upgrade - Apply the created database migration."
@@ -69,3 +71,10 @@ db_up:
 db_down:
 	docker-compose -f docker-compose.yaml down --remove-orphans
 
+.PHONY: command
+command:
+	python -m sqlalchemylab -module command
+
+.PHONY: query
+query:
+	python -m sqlalchemylab -module query
