@@ -36,7 +36,7 @@ class Reservation(BaseModel):
     num_chairs = Column(Integer, nullable=False, default=1)
     status = Column(Enum(Status), nullable=False, default=Status.REQUESTED)
     data = Column(postgresql.JSONB, nullable=True, default=None)
-    metadata = Column(postgresql.JSON, nullable=True, default=None)
+    meta = Column(postgresql.JSON, nullable=True, default=None)
     booking_datetime = Column(DateTime(timezone=True), nullable=False)
     is_canceled = Column(Boolean, nullable=False, default=False)
     created_at = Column(DateTime(timezone=True), server_default=functions.utcnow())
