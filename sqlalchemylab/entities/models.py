@@ -1,5 +1,4 @@
 import uuid
-import enum
 
 from sqlalchemy import (
     Boolean,
@@ -13,17 +12,12 @@ from sqlalchemy import (
 )
 from sqlalchemy.dialects import postgresql
 
-from sqlalchemylab.db import BaseModel
-from sqlalchemylab.db import functions
-
-
-class Status(str, enum.Enum):
-    REQUESTED = "REQUESTED"
-    ACCEPTED = "ACCEPTED"
-    REFUSED = "REFUSED"
+from sqlalchemylab.db import BaseModel, functions
+from sqlalchemylab.enums import Status
 
 
 class Reservation(BaseModel):
+    __tablename__ = "reservations"
     __table_args__ = (
         UniqueConstraint(
             "contract_model_id", "token",
@@ -43,10 +37,7 @@ class Reservation(BaseModel):
     status = Column(Enum(Status), nullable=False, default=Status.REQUESTED)
     data = Column(postgresql.JSONB, nullable=True, default=None)
     metadata = Column(postgresql.JSON, nullable=True, default=None)
-    booking_datetime = Column(
-        DateTime(timezone=True),
-        server_default=functions.utcnow()
-    )
+    booking_datetime = Column(DateTime(timezone=True), nullable=False)
     is_canceled = Column(Boolean, nullable=False, default=False)
     created_at = Column(DateTime(timezone=True), server_default=functions.utcnow())
     updated_at = Column(
