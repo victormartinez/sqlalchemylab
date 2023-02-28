@@ -1,5 +1,3 @@
-# SQLAlchemy Lab
-
 <div align="center">
 
 ![sqlalchemylab](./assets/logo.png)
